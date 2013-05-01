@@ -48,16 +48,174 @@
     font-weight: normal;
     font-style: normal;
 }
-html {
-	height: 100%;
-}
+
+
+/* Global block settings */
+html {height: 100%;}
 body {
-	height: 100%;
-	font-family: "museo_sans_300regular", helvetica, arial, sans-serif;
-	font-size: 12px;
-	line-height: 16px;
-	color: #eaeaea;
+    height: 100%;
+    min-width: 768px;
+    font-family: "museo_sans_300regular", helvetica, arial, sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    color: #eaeaea;
 }
+#globalWrap, .sectionWrap, .centerWrap {height: inherit;overflow: hidden;}
+.centerWrap {position: relative;}
+#hdr, #sec {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#sec {
+    height: -webkit-calc(100% - 60px);
+    height: -moz-calc(100% - 60px);
+    height: -o-calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin-top: 60px;
+}
+
+#scrollBox {
+    width: 20%;
+    min-width: 240px;
+    height: 100%;
+    background-color: #232323;
+    float: left;
+}
+#scrollBox .contentWrap {
+    border-top: 1px solid #434343;
+}
+#googleMap {
+    height: 100%;
+    background-color: #285258;
+    float: left;
+}
+@media only screen and (max-width : 1199px) {
+    #googleMap {
+        min-width: -webkit-calc(100% - 240px);
+        min-width: -moz-calc(100% - 240px);
+        min-width: -o-calc(100% - 240px);
+        min-width: calc(100% - 240px);
+    }
+}
+@media only screen and (min-width : 1200px) {
+    #googleMap {
+        width: 80%;
+    }
+}
+
+
+#scrollFilterWrap  {
+    height: 60px;
+    border-top: 1px solid #434343;
+    border-bottom: 1px solid #434343;
+}
+#scrollFilter {
+    display: block;
+    width: 243px;
+    margin: 0 auto;
+}
+#scrollFilter > li {
+    width: 60px;
+    float: left;
+    text-align: center;
+}
+#scrollFilter > li:nth-child(1){background-color: #333;}
+#scrollFilter > li:nth-child(2){background-color: #444;}
+#scrollFilter > li:nth-child(3){background-color: #555;}
+#scrollFilter > li:nth-child(4){background-color: #666;}
+#scrollFilter > li a.btn {
+    width: 100%;
+    line-height: 60px;
+    background-position: 50% 50%;
+    background-size: 75%;
+}
+#scrollFilter > li a:hover {background-color: #232323;}
+#scrollFilter > li:nth-child(1) a {background-image: url(../img/btnFilterGear.png);background-repeat: no-repeat;}
+#scrollFilter > li:nth-child(2) a {background-image: url(../img/btnFilterLike.png);background-repeat: no-repeat;}
+#scrollFilter > li:nth-child(3) a {background-image: url(../img/btnFilterLock.png);background-repeat: no-repeat;}
+#scrollFilter > li:nth-child(4) a  {background-image: url(../img/btnFilterStar.png);background-repeat: no-repeat;}
+
+#scrollBox .scrollBar {
+    height: -webkit-calc(100% - 62px);
+    height: -moz-calc(100% - 62px);
+    height: -o-calc(100% - 62px);
+    height: calc(100% - 62px);
+    overflow: auto;
+}
+#scrollBox #scrollList {
+
+}
+
+
+#scrollBox #scrollList > li {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #434343;
+
+    background-color: #232323;
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+#scrollBox #scrollList > li a {
+    /*min-height: 30px;
+    height: 30px;*/
+    display: block;
+
+
+}
+#scrollBox #scrollList > li:hover,
+#scrollBox #scrollList > li.postOpen {
+    background-color: #333333;
+}
+#scrollBox #scrollList > li hr {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    background-image: url(../img/scrollListFade.png);
+    background-repeat: repeat-x;
+    height: 20px;
+    position: relative;
+}
+
+.scrollListPost {
+}
+
+.scrollListHdr {padding: 0 10px 0 0;}
+.scrollListSec {padding: 0 10px;}
+.scrollListSec > div {margin: 10px 0;}
+
+.scrollListPost .scrollListHdr h1 {
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/btnUser.png);
+    background-position: 50% 50%;
+    background-size: 75%;
+    background-color: #eaeaea;
+    float: left;
+    margin-right: 5px;
+}
+.scrollListPost .scrollListHdr p {line-height: 20px;margin-left: 45px;}
+
+.scrollListPost .scrollListSec {}
+
+.scrollListPost .scrollListSlides  {height: 40px;margin: 0 auto;}
+.scrollListPost .scrollListSlides .scrollWrap {overflow: hidden;}
+.scrollListPost .scrollListSlides ul {padding: 0 40px;}
+.scrollListPost .scrollListSlides ul li {margin: 0 5px;}
+.scrollListPost .scrollListSlides ul li img {width: 40px;height: 40px;}
+.scrollListPost .scrollListSlides button {position: absolute;bottom: 0;border: none;margin: 0;padding: 0;width: 40px;height: 40px;background-color: transparent;background-size: 75%;background-position: 50% 50%;color: #4a4a4a;}
+.scrollListPost .scrollListSlides button.prev {left: -40px;z-index: 100;background-image: url(../img/btnScrollLeft.png);}
+.scrollListPost .scrollListSlides button.next {right: -40px;z-index: 100;background-image: url(../img/btnScrollRight.png);}
+
+
+
+
+
 a {
 	display: block;
 	text-decoration: none;
@@ -65,26 +223,27 @@ a {
 }
 a:hover {}
 
-header {
-	background-color: #282828;
+#hdr {
+	background-color: #232323;
+    height: 60px;
 }
 #profileNav {
-	height: 50px;
+	height: 60px;
 	clear: both;
 }
 #profileNav > ul {
 	display: block;
 	float: right;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 }
 #profileNav > ul > li {
 	position: relative;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	background-color: #aeaeae;
 	text-align: center;
-	line-height: 50px;
+	line-height: 60px;
 }
 
 #profileNav ul ul {
@@ -112,7 +271,7 @@ header {
 	visibility: visible;
 }
 #profileNav ul ul li a {
-	line-height: 30px;
+	line-height: 40px;
 	padding: 10px 20px;
 	text-align: right;
 	background-color: #434343;
@@ -121,6 +280,128 @@ header {
 	background-color: #aeaeae;
 	color: #4a4a4a;
 }
+
+
+
+.btn  {
+    width: 60px;
+    height: 60px;
+}
+
+.btnWrap.btnLeft {float: left; border-right: 1px solid #434343;}
+.btnWrap.btnRight {float: right; border-left: 1px solid #434343;}
+.btnWrap {
+    display: inline-block;
+
+    -webkit-transition: all 350ms ease;
+    -moz-transition: all 350ms ease;
+    -o-transition: all 350ms ease;
+    transition: all 350ms ease;
+}
+/*.btnWrap.btnLeft:hover {border-bottom-right-radius: 8px;}
+.btnWrap.btnRight:hover {border-bottom-left-radius: 8px;}*/
+.btnWrap:hover {
+    
+}
+.btnWrap.btnLeft img {float: right;}
+.btnWrap.btnRight img {float: left;}
+.btnWrap img {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    -webkit-transition: all 350ms ease;
+    -moz-transition: all 350ms ease;
+    -o-transition: all 350ms ease;
+    transition: all 350ms ease;
+}
+.btnWrap:hover img {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    
+}
+.btnWrap.btnLeft .btn {float: left;}
+.btnWrap.btnRight .btn {float: right;}
+.btnWrap .btn {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    float: right;
+}
+.btnWrap .btn.sliderBtn {
+    background-image: url(../img/sliderBtn.png);
+    background-repeat: none;
+    background-size: 75%;
+    background-position: 50% 50%;
+}
+#logo h1 {
+    float: left;
+    line-height: 60px;
+    font-family: 'museo_sans_300regular';
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+
+
+
+
+#landing #globalWrap {
+    height: 100%;
+    background-image: url(../img/landingBg.jpg);
+    background-repeat: repeat;
+}
+#landing h1 {
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    color: #c93115;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#landing h1 .stars img {
+    width: 30px;
+    margin: 10px;
+}
+#landing h1 .stars:first-child {
+    float: left;
+    margin-left: 30px;
+}
+#landing h1 .stars:last-child {
+    float: right;
+    margin-right: 30px;
+}
+#landing .sectionWrap {
+    position: relative;
+    height: 100%;
+    background: url(../img/landingStarburst.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+#landing .sectionWrap h2 {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    width: 552px;
+    height: 263px;
+    background-image: url(../img/landingTag.png);
+    z-index: 2;
+}
+#landing .sectionWrap #logo {
+    position: absolute;
+    left: -3%;
+    bottom: -57px;
+    z-index: 1;
+}
+
+
+
+
 
 
 
