@@ -4,17 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="description" content="" />
 	<meta name="viewport" content="" />
-	<title></title>
+
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+
+	<title>ysd</title>
+
 	<link rel="stylesheet" href="css/yui2reset.css">
 	<link rel="stylesheet" href="css/style.css">
-
-	<!--[if gte IE 9]>
-	  <style type="text/css">
-	    .gradient {
-	       filter: none;
-	    }
-	  </style>
-	<![endif]-->
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -90,7 +87,7 @@
 					</div>
 					<div id="googleMap">
 						<!-- <p>Google Maps Go Here</p> -->
-						<!--<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=36.789491,-119.917145&amp;spn=0.316188,0.379715&amp;t=m&amp;z=11&amp;output=embed"></iframe>-->
+						<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=36.789491,-119.917145&amp;spn=0.316188,0.379715&amp;t=m&amp;z=11&amp;output=embed"></iframe>
 					</div>
 				</section>
 			</div>
