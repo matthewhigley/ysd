@@ -1,6 +1,6 @@
 <a href="#" class="scrollListPost">
 	<header class="scrollListHdr clearfix">
-		<h1 class="ir">First Last Name</h1>
+		<h1 class="btn ir">First Last Name</h1>
 		<p>250 Snowyvale Ave Fresno CA 93706</p>
 	</header>
 	<section class="scrollListSec">
@@ -17,8 +17,8 @@
 					<li><img src="img/userImg02.jpg" /></li>
 				</ul>
 			</div>
-			<button class='prev ir'> &laquo; </button>
-			<button class='next ir'> &raquo; </button>
+			<button class='btn prev ir'> &laquo; </button>
+			<button class='btn next ir'> &raquo; </button>
 		</div>
 	</section>
 </a>

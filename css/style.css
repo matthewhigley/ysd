@@ -60,15 +60,74 @@ body {
     line-height: 16px;
     color: #eaeaea;
 }
+/*|||||-----GLOBAL ELEMENTS-----\\\\\*/
+a {display: block;text-decoration: none;color: #eaeaea;}
+a:hover {}
+button {margin: 0;padding: 0;border: none;}
+.btn {background-repeat: no-repeat;background-size: 75%;background-position: 50% 50%;cursor: pointer;}
+
 #globalWrap, .sectionWrap, .centerWrap {height: inherit;overflow: hidden;}
 .centerWrap {position: relative;}
-#hdr, #sec {
+#hdr {
     width: 100%;
+    height: 60px;
+    background-color: #232323;
     position: absolute;
     top: 0;
     left: 0;
 }
+#settingsBtn {
+    display: inline-block;
+    float: left;
+}
+#settingsBtn button {
+    width: 60px;
+    height: 60px;
+    background-image: url(../img/btnSettings.png);
+    border-right: 1px solid #434343;
+}
+
+#locationWrap {
+    display: inline-block;
+    float: right;
+}
+#locationWrap button {
+    width: 60px;
+    height: 60px;
+    float: left;
+    background-image: url(../img/btnLocation.png);
+    border-left: 1px solid #434343;
+}
+#locationWrap form {
+    float: left;
+    border-left: 1px solid #434343;
+    /*min-width: 150px;
+    height: 60px;
+    float: left;
+    border-left: 1px solid #434343;*/
+}
+#locationWrap form option {
+    
+}
+#locationWrap #search {
+    float: left;
+}
+#locationWrap #search input{   
+    padding: 30px;            /* Overridden by padding: 1px; */
+    font-family: Georgia;     /* Overridden by font: -webkit-small-control; */
+    border: 5px solid black;  /* Overridden by border: 2px inset; */
+    background: red;          /* Overridden by background-color: white; */
+    line-height: 3;           /* Irrelevant, I guess */
+}
+
+
+
+
 #sec {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: -webkit-calc(100% - 60px);
     height: -moz-calc(100% - 60px);
     height: -o-calc(100% - 60px);
@@ -91,6 +150,8 @@ body {
     background-color: #285258;
     float: left;
 }
+
+/*|||||-----SIZING #googleMap FOR LARGER SCREENS -----\\\\\*/
 @media only screen and (max-width : 1199px) {
     #googleMap {
         min-width: -webkit-calc(100% - 240px);
@@ -105,7 +166,7 @@ body {
     }
 }
 
-
+/*|||||-----SCROLL FILTER-----\\\\\*/
 #scrollFilterWrap  {
     height: 60px;
     border-top: 1px solid #434343;
@@ -125,18 +186,17 @@ body {
 #scrollFilter > li:nth-child(2){background-color: #444;}
 #scrollFilter > li:nth-child(3){background-color: #555;}
 #scrollFilter > li:nth-child(4){background-color: #666;}
-#scrollFilter > li a.btn {
+#scrollFilter > li a {
     width: 100%;
     line-height: 60px;
-    background-position: 50% 50%;
-    background-size: 75%;
 }
 #scrollFilter > li a:hover {background-color: #232323;}
-#scrollFilter > li:nth-child(1) a {background-image: url(../img/btnFilterGear.png);background-repeat: no-repeat;}
-#scrollFilter > li:nth-child(2) a {background-image: url(../img/btnFilterLike.png);background-repeat: no-repeat;}
-#scrollFilter > li:nth-child(3) a {background-image: url(../img/btnFilterLock.png);background-repeat: no-repeat;}
-#scrollFilter > li:nth-child(4) a  {background-image: url(../img/btnFilterStar.png);background-repeat: no-repeat;}
+#scrollFilter > li:nth-child(1) a {background-image: url(../img/btnFilterGear.png);}
+#scrollFilter > li:nth-child(2) a {background-image: url(../img/btnFilterLike.png);}
+#scrollFilter > li:nth-child(3) a {background-image: url(../img/btnFilterLock.png);}
+#scrollFilter > li:nth-child(4) a  {background-image: url(../img/btnFilterStar.png);}
 
+/*|||||-----SCROLL LIST-----\\\\\*/
 #scrollBox .scrollBar {
     height: -webkit-calc(100% - 62px);
     height: -moz-calc(100% - 62px);
@@ -160,55 +220,32 @@ body {
     -o-transition: all 250ms ease;
     transition: all 250ms ease;
 }
-#scrollBox #scrollList > li a {
-    /*min-height: 30px;
-    height: 30px;*/
-    display: block;
 
-
-}
 #scrollBox #scrollList > li:hover,
-#scrollBox #scrollList > li.postOpen {
-    background-color: #333333;
-}
-#scrollBox #scrollList > li hr {
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-    background-image: url(../img/scrollListFade.png);
-    background-repeat: repeat-x;
-    height: 20px;
-    position: relative;
-}
+#scrollBox #scrollList > li.postOpen {background-color: #333333;}
 
-.scrollListPost {
-}
+.scrollListPost {display: block;}
 
-.scrollListHdr {padding: 0 10px 0 0;}
-.scrollListSec {padding: 0 10px;}
-.scrollListSec > div {margin: 10px 0;}
-
+.scrollListPost .scrollListHdr {padding: 0 10px 0 0;}
 .scrollListPost .scrollListHdr h1 {
     width: 40px;
     height: 40px;
     background-image: url(../img/btnUser.png);
-    background-position: 50% 50%;
-    background-size: 75%;
     background-color: #eaeaea;
     float: left;
     margin-right: 5px;
 }
 .scrollListPost .scrollListHdr p {line-height: 20px;margin-left: 45px;}
 
-.scrollListPost .scrollListSec {}
+.scrollListPost .scrollListSec {padding: 0 10px;}
+.scrollListPost .scrollListSec > div {margin: 10px 0;}
 
-.scrollListPost .scrollListSlides  {height: 40px;margin: 0 auto;}
+.scrollListPost .scrollListSlides  {height: 40px;margin: 0 auto !important}
 .scrollListPost .scrollListSlides .scrollWrap {overflow: hidden;}
 .scrollListPost .scrollListSlides ul {padding: 0 40px;}
 .scrollListPost .scrollListSlides ul li {margin: 0 5px;}
 .scrollListPost .scrollListSlides ul li img {width: 40px;height: 40px;}
-.scrollListPost .scrollListSlides button {position: absolute;bottom: 0;border: none;margin: 0;padding: 0;width: 40px;height: 40px;background-color: transparent;background-size: 75%;background-position: 50% 50%;color: #4a4a4a;}
+.scrollListPost .scrollListSlides button {position: absolute;bottom: 0;width: 40px;height: 40px;background-color: transparent;color: #4a4a4a;}
 .scrollListPost .scrollListSlides button.prev {left: -40px;z-index: 100;background-image: url(../img/btnScrollLeft.png);}
 .scrollListPost .scrollListSlides button.next {right: -40px;z-index: 100;background-image: url(../img/btnScrollRight.png);}
 
@@ -216,126 +253,66 @@ body {
 
 
 
-a {
-	display: block;
-	text-decoration: none;
-	color: #eaeaea;
-}
-a:hover {}
 
-#hdr {
-	background-color: #232323;
-    height: 60px;
-}
+
 #profileNav {
 	height: 60px;
-	clear: both;
+    float: right;
 }
-#profileNav > ul {
+#profileNav .groundFloor {
 	display: block;
 	float: right;
 	width: 60px;
 	height: 60px;
 }
-#profileNav > ul > li {
-	position: relative;
-	width: 60px;
-	height: 60px;
-	background-color: #aeaeae;
-	text-align: center;
-	line-height: 60px;
+#profileNav .groundFloor > li {position: relative;}
+
+#profileNav #profileUser {
+    width: 60px;
+    height: 60px;
+    background-image: url(../img/user-matthew-higley.jpg);
+    background-position: 50% 50%;
+    background-size: 100% !important;
 }
 
-#profileNav ul ul {
+#profileNav .firstLevel {
+    width: 180px;
+    height: auto;
+    /*background: rgba(35, 35, 35, 0.8);*/
+    background-color: #323232;
 	position: absolute;
-	width: 160px;
-	height: auto;
-	bottom: -300%;
+	bottom: -200%;
 	right: 0;
+    z-index: 50;
 	opacity: 0;
 	visibility: hidden;
 
-	-webkit-transition: opacity 350ms ease;
-    -moz-transition: opacity 350ms ease;
-    -o-transition: opacity 350ms ease;
-    transition: opacity 350ms ease;
+	-webkit-transition: opacity 250ms ease;
+    -moz-transition: opacity 250ms ease;
+    -o-transition: opacity 250ms ease;
+    transition: opacity 250ms ease;
 }
-#profileNav ul ul li {
-	width: 160px;
+#profileNav .firstLevel > li {
+	width: 180px;
 	height: auto;
-	
 }
 
-#profileNav > ul > li:hover ul {
+#profileNav .groundFloor > li:hover .firstLevel {
 	opacity: 1;
 	visibility: visible;
 }
-#profileNav ul ul li a {
-	line-height: 40px;
-	padding: 10px 20px;
+#profileNav .firstLevel li a {
+	line-height: 30px;
+	padding: 5px 20px;
 	text-align: right;
-	background-color: #434343;
+	/*background-color: #434343;*/
 }
-#profileNav ul ul li a:hover {
+#profileNav .firstLevel li a:hover {
 	background-color: #aeaeae;
 	color: #4a4a4a;
 }
 
 
-
-.btn  {
-    width: 60px;
-    height: 60px;
-}
-
-.btnWrap.btnLeft {float: left; border-right: 1px solid #434343;}
-.btnWrap.btnRight {float: right; border-left: 1px solid #434343;}
-.btnWrap {
-    display: inline-block;
-
-    -webkit-transition: all 350ms ease;
-    -moz-transition: all 350ms ease;
-    -o-transition: all 350ms ease;
-    transition: all 350ms ease;
-}
-/*.btnWrap.btnLeft:hover {border-bottom-right-radius: 8px;}
-.btnWrap.btnRight:hover {border-bottom-left-radius: 8px;}*/
-.btnWrap:hover {
-    
-}
-.btnWrap.btnLeft img {float: right;}
-.btnWrap.btnRight img {float: left;}
-.btnWrap img {
-    width: 0;
-    height: 0;
-    opacity: 0;
-
-    -webkit-transition: all 350ms ease;
-    -moz-transition: all 350ms ease;
-    -o-transition: all 350ms ease;
-    transition: all 350ms ease;
-}
-.btnWrap:hover img {
-    width: 60px;
-    height: 60px;
-    opacity: 1;
-    
-}
-.btnWrap.btnLeft .btn {float: left;}
-.btnWrap.btnRight .btn {float: right;}
-.btnWrap .btn {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    float: right;
-}
-.btnWrap .btn.sliderBtn {
-    background-image: url(../img/sliderBtn.png);
-    background-repeat: none;
-    background-size: 75%;
-    background-position: 50% 50%;
-}
 #logo h1 {
     float: left;
     line-height: 60px;

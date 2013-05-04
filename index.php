@@ -12,6 +12,7 @@
 
 	<link rel="stylesheet" href="css/yui2reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="inc/jqtransformplugin/jqtransform.css">
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,6 +23,7 @@
 	<script>window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.9.1.min.js">\x3C/script>')</script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 	<script>window.jQuery || document.write('<script type="text/javascript" src="js/jquery-ui.1.10.2.min.js">\x3C/script>')</script>
+	<script type="text/javascript" src="inc/jqtransformplugin/jquery.jqtransform.js"></script>
 	<script type="text/javascript" src="js/jquery.jcarousellite-1.8.4.min.js"></script>
 </head>
 <body>
@@ -30,32 +32,53 @@
 			<div class="centerWrap">
 				<header id="hdr">
 
-					<!-- <div id="settingsBtn">
-						<button>settings panel</button>
-					</div> -->
-					<!--<div id="profileNav">
-						<ul>
+					<div id="settingsBtn">
+						<button class="btn ir">settings panel</button>
+					</div>
+					
+					<!--<a class="btnWrap btnLeft" href="#">
+						<img src="img/hoverArrow.png" />
+						<div class="btn sliderBtn ir">test</div>
+					</a>-->
+
+					<div id="logo"><h1><!-- Yardsale Digger --></h1></div>
+
+					<!-- <a class="btnWrap btnRight gradient" href="#">
+						<img src="img/hoverArrow.png" />
+						<div class="btn sliderBtn ir">test</div>
+					</a> -->
+
+					<div id="profileNav">
+						<ul class="groundFloor">
 							<li>
-								<a href="#">profile</a>
-								<ul>
+								<a id="profileUser" class="btn ir" href="#">matthew higley</a>
+								<ul class="firstLevel">
 									<li><a href="#">my profile</a></li>
 									<li><a href="#">my settings</a></li>
 									<li><a href="#">more options</a></li>
 								</ul>
 							</li>
 						</ul>
-					</div>-->
-					<a class="btnWrap btnLeft gradient" href="#">
-						<img src="img/hoverArrow.png" />
-						<div class="btn sliderBtn ir">test</div>
-					</a>
+					</div>
 
-					<div id="logo"><h1><!-- Yardsale Digger --></h1></div>
+					<div id="locationWrap" class="clearfix">
+						<input id="search" class="search" type="search" results="5" placeholder="Search..." name="s" />
+						<button id="locationBtn" class="btn ir">set your location</button>
+						<form id="rangeSelect" action="#" method="post">
+							<select name="select-choice" id="select-choice">
+								<option value="Choice 0">set your range:</option>
+								<option value="Choice 1">0 - 5 mi.</option>
+								<option value="Choice 2">5 - 10 mi.</option>
+								<option value="Choice 3">10 - 20 mi.</option>
+								<option value="Choice 4">20 - 50 mi.</option>
+								<option value="Choice 5">50 - 100 mi.</option>
+								<!-- <option value="Choice 3">100 mi. +</option> -->
+							</select>
 
-					<a class="btnWrap btnRight gradient" href="#">
-						<img src="img/hoverArrow.png" />
-						<div class="btn sliderBtn ir">test</div>
-					</a>
+							<input type="text" placeholder="text input" />
+						</form>
+						<!-- <input id="search" type="search" results="5" placeholder="Search..." name="s" /> -->
+					</div>
 				</header>
 				<section id="sec">
 					<div id="scrollBox">
@@ -95,6 +118,8 @@
 	</div>
 	<script>
 	$(document).ready(function(){
+		$("#rangeSelect, #search").jqTransform();
+
 		$(".scrollListSlides").jCarouselLite({
 			auto: false,
 			scroll: 1,
