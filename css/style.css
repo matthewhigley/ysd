@@ -87,38 +87,39 @@ button {margin: 0;padding: 0;border: none;}
     border-right: 1px solid #434343;
 }
 
-#locationWrap {
+#locationUtil {
     display: inline-block;
     float: right;
 }
-#locationWrap button {
+#quickSearch, #locationBtn, #rangeSelect {float: left;}
+
+#quickSearch input {
+    border-top: 5px solid #487b86;
+    border-right: none;
+    border-bottom: 5px solid #487b86;
+    border-left: 5px solid #487b86;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    float: left;
+}
+#quickSearch a {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-image: url(../img/btnSearch.png);
+    background-color: #487b86;
+}
+#locationBtn button {
     width: 60px;
     height: 60px;
     float: left;
     background-image: url(../img/btnLocation.png);
-    border-left: 1px solid #434343;
 }
-#locationWrap form {
-    float: left;
-    border-left: 1px solid #434343;
-    /*min-width: 150px;
-    height: 60px;
-    float: left;
-    border-left: 1px solid #434343;*/
-}
-#locationWrap form option {
-    
-}
-#locationWrap #search {
-    float: left;
-}
-#locationWrap #search input{   
-    padding: 30px;            /* Overridden by padding: 1px; */
-    font-family: Georgia;     /* Overridden by font: -webkit-small-control; */
-    border: 5px solid black;  /* Overridden by border: 2px inset; */
-    background: red;          /* Overridden by background-color: white; */
-    line-height: 3;           /* Irrelevant, I guess */
-}
+#locationBtn button:hover {background-image: url(../img/btnLocation_hover.png);}
+#locationBtn button.active {background-image: url(../img/btnLocation_on.png);}
+#rangeSelect {display: none;}
+#rangeSelect form {border-left: 1px solid #434343;width: 150px;padding: 0 10px;}
 
 
 

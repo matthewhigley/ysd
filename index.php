@@ -12,7 +12,7 @@
 
 	<link rel="stylesheet" href="css/yui2reset.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="inc/jqtransformplugin/jqtransform.css">
+	<link rel="stylesheet" href="inc/chosen/chosenMod.css">
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,8 +23,8 @@
 	<script>window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.9.1.min.js">\x3C/script>')</script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
 	<script>window.jQuery || document.write('<script type="text/javascript" src="js/jquery-ui.1.10.2.min.js">\x3C/script>')</script>
-	<script type="text/javascript" src="inc/jqtransformplugin/jquery.jqtransform.js"></script>
 	<script type="text/javascript" src="js/jquery.jcarousellite-1.8.4.min.js"></script>
+	<script type="text/javascript" src="inc/chosen/jquery.chosen.min.js"></script>
 </head>
 <body>
 	<div id="globalWrap">
@@ -61,23 +61,21 @@
 						</ul>
 					</div>
 
-					<div id="locationWrap" class="clearfix">
-						<input id="search" class="search" type="search" results="5" placeholder="Search..." name="s" />
-						<button id="locationBtn" class="btn ir">set your location</button>
-						<form id="rangeSelect" action="#" method="post">
-							<select name="select-choice" id="select-choice">
-								<option value="Choice 0">set your range:</option>
-								<option value="Choice 1">0 - 5 mi.</option>
-								<option value="Choice 2">5 - 10 mi.</option>
-								<option value="Choice 3">10 - 20 mi.</option>
-								<option value="Choice 4">20 - 50 mi.</option>
-								<option value="Choice 5">50 - 100 mi.</option>
-								<!-- <option value="Choice 3">100 mi. +</option> -->
+					<div id="locationUtil" class="clearfix">
+						<!-- <input id="search" class="search" type="search" results="5" placeholder="Search..." name="s" /> -->
+						<span id="quickSearch"><input type="text" placeholder="text input" /><a href="#" class="btn ir">search</a></span>
+						<span id="locationBtn"><button class="btn ir">set your location</button></span>
+						<span id="rangeSelect"><form action="#" method="post">
+							<label id="range" for="select-choice">0 - </label>
+							<select id="select-choice" name="select-choice">
+								<option value="Choice 0"></option>
+								<option value="Choice 1">5 mi.</option>
+								<option value="Choice 2">10 mi.</option>
+								<option value="Choice 3">20 mi.</option>
+								<option value="Choice 4">50 mi.</option>
+								<option value="Choice 5">100 mi.</option>
 							</select>
-
-							<input type="text" placeholder="text input" />
-						</form>
-						<!-- <input id="search" type="search" results="5" placeholder="Search..." name="s" /> -->
+						</form></span>
 					</div>
 				</header>
 				<section id="sec">
@@ -118,7 +116,20 @@
 	</div>
 	<script>
 	$(document).ready(function(){
-		$("#rangeSelect, #search").jqTransform();
+		$("#locationBtn button").on({
+			click: function(){
+				var $this = $(this);
+				$(this).toggleClass("active");
+				$("#rangeSelect").slideToggle(250);
+				if($this.hasClass("active")){
+					$("#rangeSelect").fadeIn(250);
+				}else{
+					$("#rangeSelect").fadeOut(250);
+				}
+			}
+		});
+
+		$("#select-choice").chosen();
 
 		$(".scrollListSlides").jCarouselLite({
 			auto: false,
