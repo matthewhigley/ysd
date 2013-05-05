@@ -41,7 +41,11 @@
 						<div class="btn sliderBtn ir">test</div>
 					</a>-->
 
-					<div id="logo"><h1><!-- Yardsale Digger --></h1></div>
+					<div id="logo"><h1>YardSale Digger</h1></div>
+
+					<div id="postNew">
+						<button>Post a Sale!<span class="btn ir">new</span></button>
+					</div>
 
 					<!-- <a class="btnWrap btnRight gradient" href="#">
 						<img src="img/hoverArrow.png" />

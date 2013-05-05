@@ -63,7 +63,7 @@ body {
 /*|||||-----GLOBAL ELEMENTS-----\\\\\*/
 a {display: block;text-decoration: none;color: #eaeaea;}
 a:hover {}
-button {margin: 0;padding: 0;border: none;}
+button {margin: 0;padding: 0;border: none; font-size: 12px;}
 .btn {background-repeat: no-repeat;background-size: 75%;background-position: 50% 50%;cursor: pointer;}
 
 #globalWrap, .sectionWrap, .centerWrap {height: inherit;overflow: hidden;}
@@ -87,6 +87,44 @@ button {margin: 0;padding: 0;border: none;}
     border-right: 1px solid #434343;
 }
 
+#logo h1 {
+    float: left;
+    line-height: 60px;
+    font-family: 'museo_sans_300regular';
+    font-size: 20px;
+    margin: 0 18px;
+}
+
+/*|||||-----LOGO DISPLAY:NONE; FOR SMALLER SCREENS -----\\\\\*/
+@media only screen and (max-width : 941px) {
+    #logo {
+        display: none;
+        /*float: left;*/
+    }
+}
+@media only screen and (min-width : 942px) {
+    #logo {
+        float: left;   
+    }
+}
+
+#postNew button {
+    min-width: 120px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 0 0 10px;
+    color: #eaeaea;
+    float: left;
+    background-color: #1f7f5c;
+    cursor: pointer;
+}
+#postNew button span {
+    width: 60px;
+    height: 60px;
+    background-image: url(../img/btnPostNew.png);
+    float: right;
+}
+
 #locationUtil {
     display: inline-block;
     float: right;
@@ -102,6 +140,7 @@ button {margin: 0;padding: 0;border: none;}
     height: 40px;
     padding: 5px;
     float: left;
+    border-radius: 0px;
 }
 #quickSearch a {
     width: 60px;
@@ -170,8 +209,8 @@ button {margin: 0;padding: 0;border: none;}
 /*|||||-----SCROLL FILTER-----\\\\\*/
 #scrollFilterWrap  {
     height: 60px;
-    border-top: 1px solid #434343;
-    border-bottom: 1px solid #434343;
+    /*border-top: 1px solid #434343;*/
+    /*border-bottom: 1px solid #434343;*/
 }
 #scrollFilter {
     display: block;
@@ -214,16 +253,11 @@ button {margin: 0;padding: 0;border: none;}
     width: 100%;
     overflow: hidden;
     border-bottom: 1px solid #434343;
-
     background-color: #232323;
-    -webkit-transition: all 250ms ease;
-    -moz-transition: all 250ms ease;
-    -o-transition: all 250ms ease;
-    transition: all 250ms ease;
 }
 
 #scrollBox #scrollList > li:hover,
-#scrollBox #scrollList > li.postOpen {background-color: #333333;}
+#scrollBox #scrollList > li.postOpen {background-color: #4a4a4a;}
 
 .scrollListPost {display: block;}
 
@@ -280,18 +314,13 @@ button {margin: 0;padding: 0;border: none;}
     width: 180px;
     height: auto;
     /*background: rgba(35, 35, 35, 0.8);*/
-    background-color: #323232;
+    background-color: #232323;
 	position: absolute;
 	bottom: -200%;
 	right: 0;
     z-index: 50;
 	opacity: 0;
 	visibility: hidden;
-
-	-webkit-transition: opacity 250ms ease;
-    -moz-transition: opacity 250ms ease;
-    -o-transition: opacity 250ms ease;
-    transition: opacity 250ms ease;
 }
 #profileNav .firstLevel > li {
 	width: 180px;
@@ -306,21 +335,11 @@ button {margin: 0;padding: 0;border: none;}
 	line-height: 30px;
 	padding: 5px 20px;
 	text-align: right;
-	/*background-color: #434343;*/
 }
-#profileNav .firstLevel li a:hover {
-	background-color: #aeaeae;
-	color: #4a4a4a;
-}
+#profileNav .firstLevel li a:hover {background-color: #4a4a4a;}
 
 
-#logo h1 {
-    float: left;
-    line-height: 60px;
-    font-family: 'museo_sans_300regular';
-    font-size: 20px;
-    margin: 0 10px;
-}
+
 
 
 
