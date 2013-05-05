@@ -62,7 +62,6 @@
 					</div>
 
 					<div id="locationUtil" class="clearfix">
-						<!-- <input id="search" class="search" type="search" results="5" placeholder="Search..." name="s" /> -->
 						<span id="quickSearch"><input type="text" placeholder="text input" /><a href="#" class="btn ir">search</a></span>
 						<span id="locationBtn"><button class="btn ir">set your location</button></span>
 						<span id="rangeSelect"><form action="#" method="post">
