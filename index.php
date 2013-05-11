@@ -30,6 +30,16 @@
 	<div id="globalWrap">
 		<div class="sectionWrap">
 			<div class="centerWrap">
+				<div id="overlay">
+					<div id="overlayCanvas">
+						<header id="ocHdr">
+							<h1>Settings</h1>
+							<button class="btn ir">close</button>
+						</header>
+
+					</div>
+				</div>
+
 				<header id="hdr">
 
 					<div id="settingsBtn">
@@ -44,7 +54,7 @@
 					<div id="logo"><h1>YardSale Digger</h1></div>
 
 					<div id="postNew">
-						<button>Post a Sale!<span class="btn ir">new</span></button>
+						<button>Post a Sale!<span class="btn oc ir">new</span></button>
 					</div>
 
 					<!-- <a class="btnWrap btnRight gradient" href="#">
@@ -111,7 +121,7 @@
 					</div>
 					<div id="googleMap">
 						<!-- <p>Google Maps Go Here</p> -->
-						<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=36.789491,-119.917145&amp;spn=0.316188,0.379715&amp;t=m&amp;z=11&amp;output=embed"></iframe>
+						<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="//maps.google.com/?ie=UTF8&amp;ll=36.789491,-119.917145&amp;spn=0.316188,0.379715&amp;t=m&amp;z=11&amp;output=embed"></iframe>
 					</div>
 				</section>
 			</div>
@@ -119,6 +129,12 @@
 	</div>
 	<script>
 	$(document).ready(function(){
+		$(".oc").on({
+			click: function(){
+				//$("#overlayCanvas").show().animate({"opacity":1}, 250);
+				console.log($("#overlayCanvas"));
+			}
+		});
 		$("#locationBtn button").on({
 			click: function(){
 				var $this = $(this);
