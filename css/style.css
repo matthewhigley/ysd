@@ -69,8 +69,6 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 #globalWrap, .sectionWrap, .centerWrap {height: inherit;overflow: hidden;}
 .centerWrap {position: relative;}
 
-
-
 /*|||||-----OVERLAY-----\\\\\*/
 #overlay {
     width: 100%;
@@ -79,7 +77,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     position: absolute;
     z-index: 9999;
     display: none;
-    opacity: 0;
+    /*opacity: 0;*/
     /*visibility: hidden;*/
 }
 #overlayCanvas {
@@ -91,6 +89,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     position: relative;
     top: 10%;
     color: #4a4a4a !important;
+    overflow: auto;
 }
 #ocHdr {
     height: 60px;
@@ -114,6 +113,29 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     background-image: url(../img/btnClose.png);
 }
 #ocHdr button:hover {background-image: url(../img/btnClose-hover.png);background-color: #dedede;}
+#ocSec .pad {
+    padding: 20px;
+}
+#ocSec .scroller {
+
+}
+
+#ocForm {
+    width: 66%;
+    float: left;
+}
+#imageUpload {
+    width: 33%;
+    float: left;
+}
+#imageUpload #dropbox {
+    width: 100%;
+    height: 200px;
+    background-color: #dddddd;
+}
+#ocFirstName, #ocCity, #ocState {
+    float: left;
+}
 
 
 
@@ -212,7 +234,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 
 
 
-#sec {
+#sec, #ocSec {
     width: 100%;
     position: absolute;
     top: 0;
@@ -391,15 +413,268 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 
 
 
+#landing {
+    height: auto;
+}
+#landing #globalWrap, #landing .sectionWrap, #landing .centerWrap {height: inherit;overflow: visible;}
+
+
+#landing .sectionWrap:first-child {width: 100%;background-color: #e56c69;}
+#landing .sectionWrap:last-child {width: 100%;background-color: #ffffff;}
+#landing .centerWrap {width: 800px;height: 340px;margin: 0 auto;}
+
+#landing #lHdr h1 {font-size: 28px;line-height: 32px;}
+#landing #lSec h2 {position: absolute;bottom: -39px;}
+#landing #lSec h2 #join {font-family: 'museo_sans_700regular';font-size: 75px;line-height: 60x;}
+#landing #lSec h2 #the {font-family: 'museo_sans_300regular';font-size: 45px;}
+#landing #lSec h2 #yardsale {font-family: 'museo_sans_700regular';font-size: 75px;line-height: 60px;}
+#landing #lSec h2 #revolution {font-family: 'museo_sans_900regular';font-size: 90px;text-transform: uppercase;line-height: 75px;color: #e56c69;}
+#landing #lSec {position: relative;height: inherit;}
+#mockImac, #mockMacpro, #mockIpad, #mockIphone {display: inline-block;position: absolute;left: 49%;bottom: 20px;}
+.mockScreen {background-color: #2a2a2a;}
+
+#mockImac {width: 419px;height: 338px;background-image: url(../img/mockImac.png);background-repeat: no-repeat;background-size: 100%;}
+#mockImac:hover {background-image: url(../img/mockImac_on.png);}
+#mockImac .mockScreen {width: 366px;height: 193px;margin: 26px;}
+
+/* Mock MacBook Pro / iPad / iPhone
+#mockMacpro {width: 300px;height: 155px;background-image: url(../img/mockMacpro.png);background-repeat: no-repeat;background-size: 100%;margin-left: -53%;z-index: 110;display: none;}
+#mockMacpro .mockScreen {width: 224px;height: 120px;margin: 10px 38px;}
+#mockIpad {width: 170px;height: 111px;background-image: url(../img/mockIpadH.png);background-repeat: no-repeat;background-size: 100%;margin-left: -22%;z-index: 120;display: none;}
+#mockIpad .mockScreen {width: 130px;height: 97px;margin: 6px 21px;}
+#mockIphone {width: 110px;height: 56px;background-image: url(../img/mockIphoneH.png);background-repeat: no-repeat;background-size: 100%;margin-left: 40%;opacity: 0.5;z-index: 130;display: none;}
+#mockIphone .mockScreen {width: 85px;height: 48px;margin: 4px 12px;}
+#mockMacpro .mockScreen {background-image: url(../img/mockAppScreen.png);background-position: 0 0;background-repeat: no-repeat;background-size: 100%;}
+#mockIpad .mockScreen, #mockIphone .mockScreen {background-image: url(../img/mockAppMobile.png);background-position: 0 0;background-repeat: no-repeat;background-size: 100%;}
+*/
+
+.miniBrowser {
+    height: inherit;
+    font-size: 80%;
+    line-height: 7px;
+    position: relative;
+}
+#miniOverlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+#miniOverlay #miniOC {
+    width: 40%;
+    height: 25%;
+    margin: 15% auto;
+    background-color: #eaeaea;
+    padding: 10px 0;
+    box-shadow: 0px 0px 1px 5px #000000;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+#miniOC #miniOClose {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url(../img/btnClose.png);
+    background-size: 100%;
+}
+#miniOC h1 {
+    width: 100%;
+    text-align: center;
+    line-height: 14px;
+    color: #4a4a4a;
+}
+#miniOC h1 span {
+    font-family: 'museo_sans_900regular';
+}
+.miniHdr {
+    width: 100%;
+    height: 18px;
+    background-color: #333333;
+}
+.miniHdr h1 {
+    line-height: 18px;
+    float: left;
+    margin-right: 5px;
+}
+.miniList {
+    height: inherit;
+    font-size: 50%;
+    width: 20%;
+    float: left;
+}
+
+.miniMap {
+    width: 80%;
+    height: 174px;
+    float: left;
+    background-image: url(../img/mockMap.png);
+    background-position: -56px -15px;
+    background-repeat: no-repeat;
+    background-size: 119%;
+}
+
+.miniHdr #miniBtn {
+    width: 18px;
+    height: 18px;
+    float: left;
+    background-image: url(../img/btnSettings.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: 50% 50%;
+    border-right: 1px solid #4a4a4a;
+    margin-right: 5px;
+}
+.miniHdr #miniPost {
+    width: auto;
+    height: 18px;
+    float: left;
+    background-image: url(../img/btnPostNew.png);
+    background-repeat: no-repeat;
+    background-size: 52%;
+    background-position: right 50%;
+    line-height: 18px;
+    padding: 0 15px 0 5px;
+    background-color: #1f7f5c;
+    font-size: 80%;
+    cursor: pointer;
+}
+.miniHdr img {
+    width: 18px;
+    height: 18px;
+    float: right;
+}
+.miniHdr #miniGps {
+    width: 18px;
+    height: 18px;
+    float: right;
+    background-image: url(../img/btnLocation_on.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: 50% 50%;
+}
+.miniHdr #miniSearch {float: right;}
+
+.miniHdr #miniSearch input {
+    border-top: 2px solid #487b86;
+    border-right: none;
+    border-bottom: 2px solid #487b86;
+    border-left: 2px solid #487b86;
+    width: 60px;
+    height: 12px;
+    padding: 1px;
+    float: left;
+    border-radius: 0px;
+    font-size: 80%;
+}
+.miniHdr #miniSearch a {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url(../img/btnSearch.png);
+    background-color: #487b86;
+}
+
+#mockScroll { position:relative; margin:0px auto; padding:0px; width: 72px; height: 174px; overflow: hidden; }
+#mockScroll #mockScrollContent { width: 72px; height: 174px; }
+
+.miniList .btn {background-size: 100%;background-position: 50% 50%;}
+.miniList > div > ul > li {width: 100%;overflow: hidden;border-bottom: 1px solid #434343;background-color: #333333;}
+.miniList > div > ul > li:hover,
+.miniList > div > ul > li.postOpen {background-color: #4a4a4a;}
+.miniList .scrollListPost {display: block;}
+.miniList .scrollListPost .scrollListHdr {padding: 0 10px 0 0;}
+.miniList .scrollListPost .scrollListHdr h1 {width: 10px;height: 10px;background-image: url(../img/btnUser.png);background-color: #eaeaea;float: left;margin-right: 3px;}
+.miniList .scrollListPost .scrollListHdr p {line-height: 7px;margin: 1px 0 0 13px;}
+.miniList .scrollListPost .scrollListSec {padding: 0 5px;}
+.miniList .scrollListPost .scrollListSec > div {margin: 10px 0;}
+.miniList .scrollListPost .scrollListSlides  {height: 10px;margin: 0 auto !important}
+.miniList .scrollListPost .scrollListSlides .scrollWrap {overflow: hidden;}
+.miniList .scrollListPost .scrollListSlides ul {padding: 0 10px;}
+.miniList .scrollListPost .scrollListSlides ul li {margin: 0 2px;}
+.miniList .scrollListPost .scrollListSlides ul li img {width: 10px;height: 10px;}
+.miniList .scrollListPost .scrollListSlides button {position: absolute;bottom: 0;width: 10px;height: 10px;background-color: transparent;color: #4a4a4a;}
+.miniList .scrollListPost .scrollListSlides button.prev {left: -10px;z-index: 100;background-image: url(../img/btnScrollLeft.png);}
+.miniList .scrollListPost .scrollListSlides button.next {right: -10px;z-index: 100;background-image: url(../img/btnScrollRight.png);}
+
+#contentSec {
+    padding: 100px 0;
+}
+form {
+    width: 92%;
+    margin: 20px auto;
+}
+form #email {
+    width: 99%;
+    height: 35px;
+    background-color: #eaeaea;
+    border-radius: 4px;
+    border-width: 1px;
+    padding: 5px;
+    font-size: 18px;
+    color: #aeaeae;
+}
+form #email:hover {
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+}
+.button,
+.button-small{
+    display:inline-block;
+    font-family:'Helvetica', Arial, sans-serif;
+    width:auto;
+    white-space:nowrap;
+    height:32px;
+    margin:5px 5px 0 0;
+    padding:0 22px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+    font-style:normal;
+    font-size:15px;
+    line-height:32px;
+    cursor:pointer;
+    border:0;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    vertical-align:top;
+}
+.button:link,.button:active,.button:visited,.button,.button span,.button-small:link,.button-small:active,.button-small:visited,.button-small{
+    background-color:#408781;
+    color:#ffffff;
+}
+.button:hover,.button-small:hover{
+    background-color:#15575a;
+    color:#ffffff;
+}
+
+#infomercial {
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eaeaea;
+}
 
 
 
-#landing #globalWrap {
+
+
+
+
+
+
+#landingOLD #globalWrap {
     height: 100%;
     background-image: url(../img/landingBg.jpg);
     background-repeat: repeat;
 }
-#landing h1 {
+#landingOLD h1 {
     line-height: 50px;
     text-align: center;
     font-size: 30px;
@@ -407,19 +682,19 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     text-transform: uppercase;
     font-weight: bold;
 }
-#landing h1 .stars img {
+#landingOLD h1 .stars img {
     width: 30px;
     margin: 10px;
 }
-#landing h1 .stars:first-child {
+#landingOLD h1 .stars:first-child {
     float: left;
     margin-left: 30px;
 }
-#landing h1 .stars:last-child {
+#landingOLD h1 .stars:last-child {
     float: right;
     margin-right: 30px;
 }
-#landing .sectionWrap {
+#landingOLD .sectionWrap {
     position: relative;
     height: 100%;
     background: url(../img/landingStarburst.png) no-repeat center center fixed; 
@@ -429,7 +704,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     background-size: cover;
     overflow: hidden;
 }
-#landing .sectionWrap h2 {
+#landingOLD .sectionWrap h2 {
     position: absolute;
     right: 5%;
     top: 15%;
@@ -438,7 +713,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     background-image: url(../img/landingTag.png);
     z-index: 2;
 }
-#landing .sectionWrap #logo {
+#landingOLD .sectionWrap #logo {
     position: absolute;
     left: -3%;
     bottom: -57px;
