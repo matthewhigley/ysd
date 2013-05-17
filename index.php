@@ -1,3 +1,7 @@
+<?php
+	include('user_agent.php'); // Redirecting http://mobile.site.info
+	// site.com data
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
