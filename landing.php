@@ -179,6 +179,8 @@
 					<div id="infomercial">
 						<iframe width="700" height="394" src="http://www.youtube.com/embed/W86xVKsGv_Y?&rel=0&theme=light&showinfo=0&disablekb=1&modestbranding=1&controls=0&hd=1&autohide=1&color=white" frameborder="0" allowfullscreen></iframe>
 					</div>
+
+					<footer><span id="copy">Copyright &copy; <?php echo date("Y"); ?> YardsaleDigger</span><span id="bug">rbt</span></footer>
 				</section>
 			</div>
 		</div>

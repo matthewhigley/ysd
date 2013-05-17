@@ -660,75 +660,22 @@ form #email:hover {
     padding: 20px;
     background-color: #eaeaea;
 }
-
-
-
-
-
-
-
-
-
-#landingOLD #globalWrap {
-    height: 100%;
-    background-image: url(../img/landingBg.jpg);
-    background-repeat: repeat;
+footer {
+    width: 92.5%;
+    height: 25px;
+    margin: 20px 0 20px 0;
+    line-height: 25px;
+    padding: 0 30px;
 }
-#landingOLD h1 {
-    line-height: 50px;
-    text-align: center;
-    font-size: 30px;
-    color: #c93115;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-#landingOLD h1 .stars img {
-    width: 30px;
-    margin: 10px;
-}
-#landingOLD h1 .stars:first-child {
+footer #copy {
+    color: #aeaeae;
     float: left;
-    margin-left: 30px;
+    line-height: 25px;
 }
-#landingOLD h1 .stars:last-child {
+footer #bug {
+    color: #eaeaea;
     float: right;
-    margin-right: 30px;
+    line-height: 25px;
 }
-#landingOLD .sectionWrap {
-    position: relative;
-    height: 100%;
-    background: url(../img/landingStarburst.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow: hidden;
-}
-#landingOLD .sectionWrap h2 {
-    position: absolute;
-    right: 5%;
-    top: 15%;
-    width: 552px;
-    height: 263px;
-    background-image: url(../img/landingTag.png);
-    z-index: 2;
-}
-#landingOLD .sectionWrap #logo {
-    position: absolute;
-    left: -3%;
-    bottom: -57px;
-    z-index: 1;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
