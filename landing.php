@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/yui2reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/perfectScrollbar.min.css">
+	<link rel="stylesheet" href="css/superLabels.css">
 
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,8 +21,11 @@
 	<script type="text/javascript" src="js/jquery.jcarousellite-1.8.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery.perfectScrollbar.min.js"></script>
 	<script type="text/javascript" src="js/jquery.perfectScrollbarWithMousewheel.min.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.6&sensor=false&key=AIzaSyB-C6HdbDEZa7ZzqJA_n9DYXF5JZ6je3l8"></script>
+	<script type="text/javascript" src="js/jquery.superLabels.min.js"></script>
+	<script type="text/javascript" src="http://malsup.github.com/jquery.cycle2.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.6&sensor=true&key=AIzaSyB-C6HdbDEZa7ZzqJA_n9DYXF5JZ6je3l8"></script>
 	<script>
+		//$(".cycle-slideshow").cycle();
 		if (navigator.geolocation) { //Checks if browser supports geolocation
 			navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
 				var latitude = position.coords.latitude;                    //users current
@@ -73,11 +77,22 @@
 				</header>
 				
 				<section id="lSec">
+					<blockquote>
+						<ul class="cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="5000" data-cycle-speed="500" data-cycle-slides="> li">
+							<li>&ldquo;Discovering the best yardsales in your local area and beyond!&rdquo;</li>
+							<li>&ldquo;Making money at yardsales, just got easier&rdquo;</li>
+							<li>&ldquo;Advertise your yardsale on Facebook, Twitter and on a personalized YardsaleDigger landing page!&rdquo;</li>
+							<li>&ldquo;No more wasting time and gas aimlessly driving searching for the best yardsales.&rdquo;</li>
+						</ul>
+					</blockquote>
 					<h2>
 						<span id="join">Join</span><br>
 						<span id="the">the</span> <span id="yardsale">Yardsale</span><br>
 						<span id="revolution">Revolution!</span>
 					</h2>
+
+					<div id="tryMe" class="ir">try me</div>
+
 					<div id="mockImac">
 						<div class="mockScreen">
 							<div class="miniMenu"></div>
@@ -152,27 +167,50 @@
 		<div class="sectionWrap">
 			<div class="centerWrap">
 				<section id="contentSec">
-					<!-- <div id="subscribeFormWelcome"></div>
-					<div class="indicates-required"><span class="asterisk">*</span> indicates required</div> -->
+					<!-- <div id="subscribeFormWelcome"></div> -->
+					<div id="formInfo">We'll let you know when we launch!</div>
 
 					<form action="http://matthewhigley.us7.list-manage.com/subscribe/post" method="POST">
-						<input type="hidden" name="u" value="57c4fc20617b1ce0e724b6ac0">
-						<input type="hidden" name="id" value="a8a71f26f0">
-						<div id="mergeTable" class="mergeTable">
-						<div class="mergeRow dojoDndItem mergeRow-email" id="mergeRow-0">
-							<!-- <label for="MERGE0"><strong>Email Address</strong> <span class="asterisk">*</span></label> -->
-							<div class="field-group">
-								<input id="email" type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="">
-							</div>
-						</div>
-						</div>
+						<ul>
+							<li>
+								<input type="hidden" name="u" value="57c4fc20617b1ce0e724b6ac0">
+							</li>
+							<li>
+								<input type="hidden" name="id" value="a8a71f26f0">
+							</li>
+							<li>
+								<div id="mergeTable" class="mergeTable">
+								<div class="mergeRow dojoDndItem mergeRow-email" id="mergeRow-0">
+									<!-- <label for="MERGE0"><strong>Email Address</strong> <span class="asterisk">*</span></label> -->
+									<div class="field-group">
+										<label id="emailLabel" for="email">Enter your email address...</label>
+										<input id="email" type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="">
+									</div>
+								</div>
+								</div>
+							</li>
 
-						<br>
-
-						<div class="submit_container">
-							<input type="submit" class="button" name="submit" value="Subscribe to list">
-						</div>
+							
+							<li>
+								<br>
+								<div class="submit_container">
+									<input type="submit" class="button" name="submit" value="Subscribe to list">
+								</div>
+							</li>
+						</ul>
 					</form>
+
+					<script>
+						$(document).ready(function(){
+							$('form').superLabels({
+								duration: 350,
+								labelLeft:10,
+								labelTop:10,
+								opacity: 0.3,
+								fadeDuration: 350
+							});
+						});
+					</script>
 
 					<br><br>
 					
@@ -188,11 +226,6 @@
 
 	<script>
 	$(document).ready(function(){
-
-		$("#miniInput").on({focusin: function(){$(this).val("");},focusout: function(){$(this).val("search...");}});
-		$(".miniCall").on({click: function(){$("#miniOverlay").show(0);closeCall();}});
-		closeCall = function(){$("#miniOverlay").delay(5000).hide(0);}
-
 		$(".scrollListSlides").jCarouselLite({
 			auto: false,
 			scroll: 1,
@@ -242,6 +275,12 @@
 		$('#mockScroll').perfectScrollbar({
 			wheelSpeed : 25
 		});
+
+		$("#miniInput").on({focusin: function(){$(this).val("");},focusout: function(){$(this).val("search...");}});
+		$(".miniCall").on({click: function(){$("#miniOverlay").show(0);closeCall();}});
+		closeCall = function(){$("#miniOverlay").delay(5000).hide(0);}
+
+		$('#email').superLabels();
 	});
 	</script>
 </body>

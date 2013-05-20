@@ -9,5 +9,7 @@
 		header('Location: http://yardsaledigger.com/landing');
 		//OR
 		echo "<script>window.location='http://yardsaledigger.com/landing'</script>";
+	}else {
+		header('Location: http://yardsaledigger.com/landing');
 	}
 ?>
