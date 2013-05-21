@@ -1,5 +1,5 @@
 <?php
-	include('user_agent.php'); // Redirecting http://mobile.site.info
+	// include('user_agent.php'); // Redirecting http://mobile.site.info
 	// site.com data
 ?>
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
 
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<meta content="yes" name="apple-mobile-web-app-capable">
+
+	<!-- <meta property="og:image" content="http://www.example.com/cookies.png" /> FACEBOOK THUMBNAIL IMAGE-->
 
 	<title>ysd</title>
 
@@ -35,46 +37,36 @@
 	<script type="text/javascript" src="js/jquery.idealforms.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.6&sensor=true&key=AIzaSyB-C6HdbDEZa7ZzqJA_n9DYXF5JZ6je3l8"></script>
 	<script>
-		//$(".cycle-slideshow").cycle();
-		if (navigator.geolocation) { //Checks if browser supports geolocation
-			navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
-				var latitude = position.coords.latitude;                    //users current
-				var longitude = position.coords.longitude;                 //location
-				var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
-				/*
-				var directionsService = new google.maps.DirectionsService();
-				var directionsDisplay = new google.maps.DirectionsRenderer();
-				*/
-				var mapOptions = { //Sets map options
-					zoom: 12,  //Sets zoom level (0-21)
-					center: coords, //zoom in on users location
-					mapTypeControl: true, //allows you to select map type eg. map or satellite
-					disableDefaultUI: true,
-					mapTypeControl: false,
-					zoomControl: true,
-					navigationControlOptions: {
-						style: google.maps.NavigationControlStyle.SMALL //sets map controls size eg. zoom
-					},
-					mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
-				};
-				map = new google.maps.Map( /*creates Map variable*/ document.getElementById("map-canvas"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
-				/*
-				directionsDisplay.setMap(map);
-				directionsDisplay.setPanel(document.getElementById('panel'));
-				var request = {
-					origin: coords,
-					destination: 'BT42 1FL',
-					travelMode: google.maps.DirectionsTravelMode.DRIVING
-				};
+		google.maps.visualRefresh = true;
+		var map;
+		function initGM() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
+					var latitude = position.coords.latitude;
+					var longitude = position.coords.longitude;
+					var coords = new google.maps.LatLng(latitude, longitude);
+					var mapOptions = {
+						zoom: 12,
+						center: coords,
 
-				directionsService.route(request, function (response, status) {
-					if (status == google.maps.DirectionsStatus.OK) {
-						directionsDisplay.setDirections(response);
-					}
+						panControl: true,
+						zoomControl: true,
+						mapTypeControl: true,
+						mapTypeControlOptions: {
+					      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+					    },
+						scaleControl: false,
+						streetViewControl: true,
+						overviewMapControl: true,
+						navigationControl: true,
+
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 				});
-				*/
-			});
+			}
 		}
+		google.maps.event.addDomListener(window, 'load', initGM);
 	</script>
 </head>
 <body>
@@ -92,57 +84,76 @@
 								<form id="my-form">
 									<!-- TAB -->
 									<section name="First tab">
+										<div class="formTabLeft">
 
-									<!-- Heading -->
-									<div>
-										<h1>My Heading</h1>
-										<p>Description here</p>
-									</div>
+											<!-- Heading -->
+											<div>
+												<h1>My Heading Left</h1>
+												<p>Description here</p>
+											</div>
 
-									<!-- Text -->
-									<div><label>Username:</label><input type="text" name="username"/></div>
-									<div><label>Date:</label><input type="text" name="date" class="datepicker" placeholder="mm/dd/yy"/></div>
-									<div><label>Comments:</label><textarea name="comments"></textarea></div>
+											<!-- Text -->
+											<div><label>Username:</label><input type="text" name="username"/></div>
+											<div><label>Date:</label><input type="text" name="date" class="datepicker" placeholder="mm/dd/yy"/></div>
+											<div><label>Comments:</label><textarea name="comments"></textarea></div>
 
-									<!-- File -->
-									<div><label>File Upload:</label><input type="file" multiple name="file"/></div>
+											<!-- File -->
+											<div><label>File Upload:</label><input type="file" multiple name="file"/></div>
 
-									<!-- Select -->
-									<div>
-										<label>Colors:</label>
-										<select name="colors">
-											<option value="default">Choose a color</option>
-											<option value="Red">Red</option>
-											<option value="Blue">Blue</option>
-											<option value="Green">Green</option>
-										</select>
-									</div>
+											<!-- Select -->
+											<div>
+												<label>Colors:</label>
+												<select name="colors">
+													<option value="default">Choose a color</option>
+													<option value="Red">Red</option>
+													<option value="Blue">Blue</option>
+													<option value="Green">Green</option>
+												</select>
+											</div>
+										</div>
+										<div class="formTabRight">
+
+											<!-- Heading -->
+											<div>
+												<h1>My Heading Right</h1>
+												<p>Description here</p>
+											</div>
+
+											<!-- Image Upload -->
+											<div id="imageUpload">
+												<div id="dropbox"></div>
+												<input id="multiple" type="file" multiple>
+											</div>
+
+										</div>
 
 									</section> <!-- END TAB -->
 
 									<!-- TAB -->
 									<section name="Second tab">
+										<div class="formTabLeft">
 
-									<div>
-										<h1>My Heading</h1>
-										<p>Description here</p>
-									</div>
+											<div>
+												<h1>My Heading</h1>
+												<p>Description here</p>
+											</div>
 
-									<!-- Checkbox -->
-									<div>
-									<label>Languages:</label>
-									<label><input type="checkbox" name="langs[]" value="English"/>English</label>
-									<label><input type="checkbox" name="langs[]" value="Chinese"/>Chinese</label>
-									<label><input type="checkbox" name="langs[]" value="Spanish"/>Spanish</label>
-									</div>
+											<!-- Checkbox -->
+											<div>
+											<label>Languages:</label>
+											<label><input type="checkbox" name="langs[]" value="English"/>English</label>
+											<label><input type="checkbox" name="langs[]" value="Chinese"/>Chinese</label>
+											<label><input type="checkbox" name="langs[]" value="Spanish"/>Spanish</label>
+											</div>
 
-									<!-- Radio -->
-									<div>
-									<label>Options:</label>
-									<label><input type="radio" name="options" value="One"/>One</label>
-									<label><input type="radio" name="options" value="Two"/>Two</label>
-									<label><input type="radio" name="options" value="Three"/>Three</label>
-									</div>
+											<!-- Radio -->
+											<div>
+											<label>Options:</label>
+											<label><input type="radio" name="options" value="One"/>One</label>
+											<label><input type="radio" name="options" value="Two"/>Two</label>
+											<label><input type="radio" name="options" value="Three"/>Three</label>
+											</div>
+										</div>
 
 									</section> <!-- END TAB -->
 

@@ -25,44 +25,24 @@
 	<script type="text/javascript" src="http://malsup.github.com/jquery.cycle2.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.6&sensor=true&key=AIzaSyB-C6HdbDEZa7ZzqJA_n9DYXF5JZ6je3l8"></script>
 	<script>
-		//$(".cycle-slideshow").cycle();
-		if (navigator.geolocation) { //Checks if browser supports geolocation
+		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
-				var latitude = position.coords.latitude;                    //users current
-				var longitude = position.coords.longitude;                 //location
-				var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
-				/*
-				var directionsService = new google.maps.DirectionsService();
-				var directionsDisplay = new google.maps.DirectionsRenderer();
-				*/
-				var mapOptions = { //Sets map options
-					zoom: 12,  //Sets zoom level (0-21)
-					center: coords, //zoom in on users location
-					mapTypeControl: true, //allows you to select map type eg. map or satellite
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+				var coords = new google.maps.LatLng(latitude, longitude);
+				var mapOptions = {
+					zoom: 12,
+					center: coords,
+					mapTypeControl: true,
 					disableDefaultUI: true,
 					mapTypeControl: false,
-					zoomControl: true,
+					zoomControl: false,
 					navigationControlOptions: {
-						style: google.maps.NavigationControlStyle.SMALL //sets map controls size eg. zoom
+						style: google.maps.NavigationControlStyle.SMALL
 					},
-					mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
+					mapTypeId: google.maps.MapTypeId.ROADMAP
 				};
-				map = new google.maps.Map( /*creates Map variable*/ document.getElementById("map-canvas"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
-				/*
-				directionsDisplay.setMap(map);
-				directionsDisplay.setPanel(document.getElementById('panel'));
-				var request = {
-					origin: coords,
-					destination: 'BT42 1FL',
-					travelMode: google.maps.DirectionsTravelMode.DRIVING
-				};
-
-				directionsService.route(request, function (response, status) {
-					if (status == google.maps.DirectionsStatus.OK) {
-						directionsDisplay.setDirections(response);
-					}
-				});
-				*/
+				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 			});
 		}
 	</script>

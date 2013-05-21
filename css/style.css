@@ -98,57 +98,6 @@
     font-weight: normal;
     font-style: normal;
 }
-/*
-@font-face {
-    font-family: 'museo_sans_100regular';
-    src: url('../fonts/museosans_100-webfont.eot');
-    src: url('../fonts/museosans_100-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/museosans_100-webfont.woff') format('woff'),
-         url('../fonts/museosans_100-webfont.ttf') format('truetype'),
-         url('../fonts/museosans_100-webfont.svg#museo_sans_100regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo_sans_300regular';
-    src: url('../fonts/museosans_300-webfont.eot');
-    src: url('../fonts/museosans_300-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/museosans_300-webfont.woff') format('woff'),
-         url('../fonts/museosans_300-webfont.ttf') format('truetype'),
-         url('../fonts/museosans_300-webfont.svg#museo_sans_300regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo_sans_500regular';
-    src: url('../fonts/museosans_500-webfont.eot');
-    src: url('../fonts/museosans_500-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/museosans_500-webfont.woff') format('woff'),
-         url('../fonts/museosans_500-webfont.ttf') format('truetype'),
-         url('../fonts/museosans_500-webfont.svg#museo_sans_500regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo_sans_700regular';
-    src: url('../fonts/museosans_700-webfont.eot');
-    src: url('../fonts/museosans_700-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/museosans_700-webfont.woff') format('woff'),
-         url('../fonts/museosans_700-webfont.ttf') format('truetype'),
-         url('../fonts/museosans_700-webfont.svg#museo_sans_700regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'museo_sans_900regular';
-    src: url('../fonts/museosans_900-webfont.eot');
-    src: url('../fonts/museosans_900-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/museosans_900-webfont.woff') format('woff'),
-         url('../fonts/museosans_900-webfont.ttf') format('truetype'),
-         url('../fonts/museosans_900-webfont.svg#museo_sans_900regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}*/
 
 
 /* Global block settings */
@@ -215,22 +164,35 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 }
 #ocHdr button:hover {background-image: url(../img/btnClose-hover.png);background-color: #dedede;}
 #ocSec .pad {
-    padding: 20px;
+    /*padding: 20px;*/
+    padding: 0 20px; /* MH edit */
 }
 #ocSec .scroller {
 
 }
-
+.ideal-wrap {
+    clear: left;
+    margin: 0 20px;
+}
 #ocForm {
     width: 66%;
     float: left;
 }
+.formTabLeft {
+    width: 49%;
+    float: left;
+    margin: 0 2% 0 0 !important;
+}
+.formTabRight {
+    width: 49%;
+    float: left;
+}
 #imageUpload {
-    width: 33%;
+    width: 100%;
     float: left;
 }
 #imageUpload #dropbox {
-    width: 100%;
+    width: inherit;
     height: 200px;
     background-color: #dddddd;
 }
@@ -264,7 +226,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     line-height: 60px;
     font-family: 'OpenSans-Regular';
     font-size: 20px;
-    margin: 0 18px;
+    margin: 0 19px 0 20px;
 }
 
 /*|||||-----LOGO DISPLAY:NONE; FOR SMALLER SCREENS -----\\\\\*/
@@ -334,17 +296,26 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 
 
 
-
 #sec, #ocSec {
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    overflow: auto;
+}
+#sec {
     height: -webkit-calc(100% - 60px);
     height: -moz-calc(100% - 60px);
     height: -o-calc(100% - 60px);
     height: calc(100% - 60px);
     margin-top: 60px;
+}
+#ocSec {
+    height: -webkit-calc(100% - 100px);
+    height: -moz-calc(100% - 100px);
+    height: -o-calc(100% - 100px);
+    height: calc(100% - 100px);
+    margin-top: 100px;
 }
 
 #scrollBox {
@@ -359,7 +330,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 }
 #googleMap {
     height: 100%;
-    background-color: #285258;
+    background-color: #e56c69;
     float: left;
 }
 
@@ -535,7 +506,7 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
     width: 380px;
 }
 
-#landing #lSec h2 {position: absolute;bottom: -35px;}
+#landing #lSec h2 {position: absolute;bottom: -33px;}
 #landing #lSec h2 #join {font-family: 'OpenSans-Bold';font-size: 75px;line-height: 60x;}
 #landing #lSec h2 #the {font-family: 'OpenSans-SemiBold';font-size: 45px;}
 #landing #lSec h2 #yardsale {font-family: 'OpenSans-Bold';font-size: 75px;line-height: 60px;}
@@ -741,9 +712,11 @@ button {margin: 0;padding: 0;border: none; font-size: 12px;}
 }
 #formInfo {color: #666;font-size: 24px;text-align: center;}
 form {
-    width: 92%;
-    margin: 20px auto;
-    padding: 0 0 40px 0;
+    /*width: 92%;
+    margin: 20px auto;*/
+    width: 100%; /* MH edit */
+    margin: 0 auto; /* MH edit */
+    padding: 20px 0 0 0;
 }
 form #email {
     width: 99%;

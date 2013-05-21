@@ -6,9 +6,9 @@
 	$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
 
 	if ($iphone || $android || $palmpre || $ipod || $berry == true) { 
-		header('Location: http://yardsaledigger.com/landing');
+		header('Location: http://yardsaledigger.com/m.landing');
 		//OR
-		echo "<script>window.location='http://yardsaledigger.com/landing'</script>";
+		echo "<script>window.location='http://yardsaledigger.com/m.landing'</script>";
 	}else {
 		header('Location: http://yardsaledigger.com/landing');
 	}
