@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /.git
+Disallow: /archiveYSD2012

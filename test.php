@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="css/yui2reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/chosenMod.css">
+	<link href="fonts/stylesheet.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/jquery.idealforms.css">
 
 	<!--[if lt IE 9]>
@@ -39,6 +40,36 @@
 	<script>
 		google.maps.visualRefresh = true;
 		var map;
+
+		var markers = [
+			['YardsaleDigger', 36.806991,-119.830971],
+			['YardsaleDigger', 36.865794,-119.756813],
+			['YardsaleDigger', 36.821056,-119.743767],
+			['YardsaleDigger', 36.815787,-119.74308],
+			['YardsaleDigger', 36.789397,-119.773293],
+
+			['YardsaleDigger', 36.796042,-119.801273],
+			['YardsaleDigger', 36.789397,-119.773293],
+			['YardsaleDigger', 36.786647,-119.729347],
+			['YardsaleDigger', 36.772898,-119.771233],
+			['YardsaleDigger', 36.763547,-119.798698],
+
+			['YardsaleDigger', 36.741863,-119.782734],
+			['YardsaleDigger', 36.752891,-119.74411],
+			['YardsaleDigger', 36.750391,-119.744282],
+			['YardsaleDigger', 36.74764,-119.733982],
+			['YardsaleDigger', 36.802526,-119.74102],
+
+			['YardsaleDigger', 36.830628,-119.886932],
+			['YardsaleDigger', 36.849861,-119.673386],
+			['YardsaleDigger', 36.710171,-119.740677],
+			['YardsaleDigger', 36.711822,-119.835434],
+			['YardsaleDigger', 36.798744,-119.660339],
+
+			['YardsaleDigger', 36.794345,-119.669952],
+			['YardsaleDigger', 36.725032,-119.667892]
+		];
+
 		function initGM() {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
@@ -63,10 +94,25 @@
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					};
 					map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+					var infowindow = new google.maps.InfoWindow(), marker, i;
+					for (i = 0; i < markers.length; i++) {  
+						marker = new google.maps.Marker({
+							position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+							map: map
+						});
+						google.maps.event.addListener(marker, 'click', (function(marker, i) {
+							return function() {
+								infowindow.setContent(markers[i][0]);
+								infowindow.open(map, marker);
+							}
+						})(marker, i));
+					}
 				});
 			}
 		}
 		google.maps.event.addDomListener(window, 'load', initGM);
+		
 	</script>
 </head>
 <body>
@@ -88,20 +134,86 @@
 
 											<!-- Heading -->
 											<div>
-												<h1>My Heading Left</h1>
-												<p>Description here</p>
+												<h1>Profile</h1>
+												<p>Update your information here</p>
 											</div>
 
 											<!-- Text -->
 											<div><label>Username:</label><input type="text" name="username"/></div>
+											<div><label>First Name:</label><input type="text" name="firstName"/></div>
+											<div><label>Last Name:</label><input type="text" name="lastName"/></div>
+
+											<div><label>Address:</label><input type="text" name="address"/></div>
+											<div><label>City:</label><input type="text" name="city"/></div>
+
+											<div>
+												<label>State:</label>
+												<select name="state">
+													<option value="default">Choose a state</option>
+													<option value="AL">Alabama</option>
+													<option value="AK">Alaska</option>
+													<option value="AZ">Arizona</option>
+													<option value="AR">Arkansas</option>
+													<option value="CA">California</option>
+													<option value="CO">Colorado</option>
+													<option value="CT">Connecticut</option>
+													<option value="DE">Delaware</option>
+													<option value="DC">District of Columbia</option>
+													<option value="FL">Florida</option>
+													<option value="GA">Georgia</option>
+													<option value="HI">Hawaii</option>
+													<option value="ID">Idaho</option>
+													<option value="IL">Illinois</option>
+													<option value="IN">Indiana</option>
+													<option value="IA">Iowa</option>
+													<option value="KS">Kansas</option>
+													<option value="KY">Kentucky</option>
+													<option value="LA">Louisiana</option>
+													<option value="ME">Maine</option>
+													<option value="MD">Maryland</option>
+													<option value="MA">Massachusetts</option>
+													<option value="MI">Michigan</option>
+													<option value="MN">Minnesota</option>
+													<option value="MS">Mississippi</option>
+													<option value="MO">Missouri</option>
+													<option value="MT">Montana</option>
+													<option value="NE">Nebraska</option>
+													<option value="NV">Nevada</option>
+													<option value="NH">New Hampshire</option>
+													<option value="NJ">New Jersey</option>
+													<option value="NM">New Mexico</option>
+													<option value="NY">New York</option>
+													<option value="NC">North Carolina</option>
+													<option value="ND">North Dakota</option>
+													<option value="OH">Ohio</option>
+													<option value="OK">Oklahoma</option>
+													<option value="OR">Oregon</option>
+													<option value="PA">Pennsylvania</option>
+													<option value="RI">Rhode Island</option>
+													<option value="SC">South Carolina</option>
+													<option value="SD">South Dakota</option>
+													<option value="TN">Tennessee</option>
+													<option value="TX">Texas</option>
+													<option value="UT">Utah</option>
+													<option value="VT">Vermont</option>
+													<option value="VA">Virginia</option>
+													<option value="WA">Washington</option>
+													<option value="WV">West Virginia</option>
+													<option value="WI">Wisconsin</option>
+													<option value="WY">Wyoming</option>
+												</select>
+											</div>
+
+
+											<div><label>Zipcode:</label><input type="text" name="zip" data-ideal="zip"/></div>
 											<div><label>Date:</label><input type="text" name="date" class="datepicker" placeholder="mm/dd/yy"/></div>
-											<div><label>Comments:</label><textarea name="comments"></textarea></div>
+											<!--<div><label>Comments:</label><textarea name="comments"></textarea></div>-->
 
 											<!-- File -->
-											<div><label>File Upload:</label><input type="file" multiple name="file"/></div>
+											<!--<div><label>File Upload:</label><input type="file" multiple name="file"/></div>-->
 
 											<!-- Select -->
-											<div>
+											<!--<div>
 												<label>Colors:</label>
 												<select name="colors">
 													<option value="default">Choose a color</option>
@@ -109,14 +221,14 @@
 													<option value="Blue">Blue</option>
 													<option value="Green">Green</option>
 												</select>
-											</div>
+											</div>-->
 										</div>
 										<div class="formTabRight">
 
 											<!-- Heading -->
 											<div>
-												<h1>My Heading Right</h1>
-												<p>Description here</p>
+												<h1>Add Images</h1>
+												<p>Drag and drop your images here</p>
 											</div>
 
 											<!-- Image Upload -->
@@ -187,7 +299,7 @@
 						<div class="btn sliderBtn ir">test</div>
 					</a>-->
 
-					<div id="logo"><h1>YardSaleDigger</h1></div>
+					<div id="logo"><h1>YardsaleDigger</h1></div>
 
 					<div id="postNew" class="oc">
 						<button>Post a Sale!<span class="btn ir">new</span></button>
@@ -270,7 +382,15 @@
 			onFail: function() {
 				alert( $myform.getInvalid().length +' invalid fields.' )
 			},
+			onSuccess: function() {
+				alert( 'Thank you. Your yardsale post is complete!' )
+			},
 			inputs: {
+				'firstName': {},
+				'lastName': {},
+				'address': {},
+				'city': {},
+				'zip': {},
 				'password': {
 					filters: 'required pass',
 				},
